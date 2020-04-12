@@ -7,3 +7,6 @@ let config = {
 };
 
 let game = new Phaser.Game(config);
+
+//reserve some keyboard variables - globally scoped
+let keyF, keyLEFT, keyRIGHT;
