@@ -15,4 +15,4 @@ game.settings = {
 }
 
 //reserve some keyboard variables - globally scoped
-let keyF, keyLEFT, keyRIGHT;
+let keyF, keyLEFT, keyRIGHT, keyTAB;
