@@ -103,7 +103,8 @@ class Play extends Phaser.Scene {
 
         this.secs = game.settings.gameTimer/1000;
         this.timerRight = this.add.text(485, 54, this.secs, scoreConfig);
-        this.fireText = this.add.text(300, 54, 'FIRE', scoreConfig).setVisible(0);
+        this.fireText = this.add.text(300, 54, 'FIRE', scoreConfig)
+        this.fireText.setVisible(0);
     }
 
     update() {
