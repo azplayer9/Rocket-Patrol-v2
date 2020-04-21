@@ -35,7 +35,6 @@ class Play extends Phaser.Scene {
 
         // add rocket (p1)
         this.p1Rocket = new Rocket(this, game.config.width/2, 431, 'rocket').setScale(0.5, 0.5).setOrigin(0,0);
-        //this.p2Rocket = new Rocket(this, game.config.width/2, 131, 'rocket2').setScale(0.5, 0.5).setOrigin(0,0);
 
         // define keyboard keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -85,10 +84,9 @@ class Play extends Phaser.Scene {
         }
         this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
 
-        // establish game over flag
+        // establish 'game over' and other flags
         this.speedy = false;
         this.gameOver = false;
-
         this.collision1 = false;
         this.collision2 = false;
         this.collision3 = false;
@@ -105,6 +103,7 @@ class Play extends Phaser.Scene {
 
         this.secs = game.settings.gameTimer/1000;
         this.timerRight = this.add.text(485, 54, this.secs, scoreConfig);
+        this.fireText = this.add.text(300, 54, 'FIRE', scoreConfig).setVisible(0);
     }
 
     update() {
@@ -116,6 +115,10 @@ class Play extends Phaser.Scene {
             this.bgmusic.rate = 1.25;
             this.speedy = true;
         }
+
+        if(this.p1Rocket.isFiring){
+            this.fireText.setVisible(1);
+        }else this.fireText.setVisible(0);
 
         // check key inputs for restart
         if (this.gameOver){
