@@ -8,6 +8,10 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_r2', './assets/rocket2_shot.wav');
+        this.load.audio('sfx_r3', './assets/rocket3_fire.wav');
+        this.load.audio('sfx_tick', './assets/tick.wav');
+        this.load.audio('bgm', './assets/bgm-v2.wav');
     }
 
     create() {
@@ -30,10 +34,12 @@ class Menu extends Phaser.Scene {
         let textSpacer = 64;
 
         this.add.text(centerX, centerY - textSpacer, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY, 'Use <--> Arrows to move and (F) to Fire', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY, 'Use ← and → to move and (F) to fire', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer, 'Press TAB to swap between the 3 weapons', menuConfig).setOrigin(.5);
+        
         menuConfig.backgroundColor = '#00FF00';
         menuConfig.color = '#000';
-        this.add.text(centerX, centerY + textSpacer, "Press <- for Easy or -> for Hard", menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer*2, "Press ← for Easy or → for Hard", menuConfig).setOrigin(0.5);
         
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
